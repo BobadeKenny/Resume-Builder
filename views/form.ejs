@@ -1,28 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="assets/css/form.css">
+	<title>Resume Form</title>
+	<link rel="stylesheet" type="text/css" href="/assets/css/form.css">
 </head>
 <body>
-	<div>
-		<h2>bb allen</h2>
-		
-	</div>
-	<form>
-		<div id="personal-info">
-			<label>Name</label>
-			<input type="text" name="first-name" placeholder="First Name">
-			<label>Email</label>
-			<input type="text" name="email" placeholder="Email">
-			<label>Phone</label>
-			<input type="number" name="phone">
-			<button>neaxt</button>
-			
-		</div>
-		<input type="name" name="name">
-	</form>
-	<script type="text/javascript" src="assets/js/form.js"></script>
+	<main class="page">
+		<% const formData = typeof data !== 'undefined' ? data : {}; %>
+		<h1>Resume Details</h1>
+		<p class="hint">Fill this once. We will generate your resume immediately.</p>
+
+		<% if (typeof error !== 'undefined' && error) { %>
+			<p class="error"><%= error %></p>
+		<% } %>
+
+		<form action="/resume" method="POST" class="form-grid">
+			<label for="fullName">Full name</label>
+			<input id="fullName" type="text" name="fullName" required value="<%= formData.fullName || '' %>">
+
+			<label for="jobTitle">Professional title</label>
+			<input id="jobTitle" type="text" name="jobTitle" required value="<%= formData.jobTitle || '' %>">
+
+			<label for="email">Email</label>
+			<input id="email" type="email" name="email" required value="<%= formData.email || '' %>">
+
+			<label for="phone">Phone</label>
+			<input id="phone" type="text" name="phone" value="<%= formData.phone || '' %>">
+
+			<label for="location">Location</label>
+			<input id="location" type="text" name="location" value="<%= formData.location || '' %>">
+
+			<label for="summary">Professional summary</label>
+			<textarea id="summary" name="summary" rows="4"><%= formData.summary || '' %></textarea>
+
+			<label for="skills">Skills</label>
+			<input id="skills" type="text" name="skills" placeholder="e.g. Node.js, SQL, React, Leadership" value="<%= formData.skills || '' %>">
+
+			<label for="experienceRole">Most recent role</label>
+			<input id="experienceRole" type="text" name="experienceRole" value="<%= formData.experienceRole || '' %>">
+
+			<label for="experienceCompany">Company</label>
+			<input id="experienceCompany" type="text" name="experienceCompany" value="<%= formData.experienceCompany || '' %>">
+
+			<label for="experienceDuration">Duration</label>
+			<input id="experienceDuration" type="text" name="experienceDuration" placeholder="e.g. 2023 - 2025" value="<%= formData.experienceDuration || '' %>">
+
+			<label for="experienceDetails">Experience highlights</label>
+			<textarea id="experienceDetails" name="experienceDetails" rows="4"><%= formData.experienceDetails || '' %></textarea>
+
+			<label for="educationSchool">School</label>
+			<input id="educationSchool" type="text" name="educationSchool" value="<%= formData.educationSchool || '' %>">
+
+			<label for="educationDegree">Degree</label>
+			<input id="educationDegree" type="text" name="educationDegree" value="<%= formData.educationDegree || '' %>">
+
+			<label for="educationYear">Year</label>
+			<input id="educationYear" type="text" name="educationYear" placeholder="e.g. 2022" value="<%= formData.educationYear || '' %>">
+
+			<button type="submit">Generate Resume</button>
+		</form>
+	</main>
+	<script type="text/javascript" src="/assets/js/form.js"></script>
 
 </body>
 </html>

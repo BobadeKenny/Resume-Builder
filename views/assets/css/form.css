@@ -1,3 +1,63 @@
-#personal-info {
-	display: block
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  background: #f5f3ee;
+  color: #1f252b;
+}
+
+.page {
+  width: min(860px, 94vw);
+  margin: 2rem auto;
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #ded9cf;
+  padding: 1.2rem;
+}
+
+h1 {
+  margin: 0;
+}
+
+.hint {
+  color: #5d646b;
+}
+
+.error {
+  background: #ffe8e5;
+  color: #9e2c2c;
+  border: 1px solid #efaaaa;
+  border-radius: 8px;
+  padding: 0.65rem;
+}
+
+.form-grid {
+  display: grid;
+  gap: 0.6rem;
+}
+
+label {
+  font-weight: 700;
+  margin-top: 0.45rem;
+}
+
+input,
+textarea,
+button {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #c4cdd3;
+  padding: 0.65rem;
+  font: inherit;
+}
+
+button {
+  margin-top: 0.7rem;
+  border: 0;
+  background: #1b6b57;
+  color: #fff;
+  cursor: pointer;
 }

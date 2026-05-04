@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<% const resumeData = typeof data !== 'undefined' ? data : {}; %>
+	<title><%= resumeData.fullName || 'Resume' %> - Resume</title>
+	<link rel="stylesheet" type="text/css" href="/assets/css/resume.css">
+</head>
+<body>
+	<main class="resume">
+		<header>
+			<h1><%= resumeData.fullName || 'Your Name' %></h1>
+			<h2><%= resumeData.jobTitle || 'Professional Title' %></h2>
+			<p><%= resumeData.email || 'email@example.com' %> <% if (resumeData.phone) { %> | <%= resumeData.phone %> <% } %> <% if (resumeData.location) { %> | <%= resumeData.location %> <% } %></p>
+		</header>
+
+		<section>
+			<h3>Summary</h3>
+			<p><%= resumeData.summary || 'No summary provided.' %></p>
+		</section>
+
+		<section>
+			<h3>Skills</h3>
+			<p><%= resumeData.skills || 'No skills provided.' %></p>
+		</section>
+
+		<section>
+			<h3>Experience</h3>
+			<p class="strong"><%= resumeData.experienceRole || 'Role' %> <% if (resumeData.experienceCompany) { %> at <%= resumeData.experienceCompany %> <% } %></p>
+			<p class="muted"><%= resumeData.experienceDuration || 'Duration not provided' %></p>
+			<p><%= resumeData.experienceDetails || 'No experience details provided.' %></p>
+		</section>
+
+		<section>
+			<h3>Education</h3>
+			<p class="strong"><%= resumeData.educationDegree || 'Degree' %></p>
+			<p><%= resumeData.educationSchool || 'School not provided' %> <% if (resumeData.educationYear) { %> | <%= resumeData.educationYear %> <% } %></p>
+		</section>
+
+		<div class="actions">
+			<a href="/form">Edit Details</a>
+			<button onclick="window.print()">Print / Save PDF</button>
+		</div>
+	</main>
+</body>
+</html>
